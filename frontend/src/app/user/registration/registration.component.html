@@ -1,0 +1,30 @@
+<mat-card>
+  <h1 class="title">Registration</h1>
+  <form [formGroup]="registrationForm">
+    <mat-form-field appearance="outline">
+      <mat-label>First name</mat-label>
+      <input matInput type="text" formControlName="firstName" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Last name</mat-label>
+      <input matInput type="text" formControlName="lastName" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Confirm password</mat-label>
+      <input matInput type="password" formControlName="passwordConfirmation" required>
+    </mat-form-field>
+    <button class="submit-button" mat-flat-button>Submit</button>
+  </form>
+</mat-card>
+
+
+
+
