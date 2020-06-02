@@ -18,13 +18,22 @@ export class RegistrationComponent implements OnInit {
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required), 
+      password: new FormControl('', [Validators.required, Validators.minLength(8)]), 
       passwordConfirmation: new FormControl('', Validators.required)
     })
   }
 
-  submit() {
-    this.userService.register(this.registrationForm);
+  get firstName() { return this.registrationForm.get('firstName') }
+  get lastName() { return this.registrationForm.get('lastName') }
+  get email() { return this.registrationForm.get('email') }
+  get password() { return this.registrationForm.get('password') }
+  get passwordConfirmation() { return this.registrationForm.get('passwordConfirmation') }
+  
+
+  register() {
+    if (this.registrationForm.valid) {
+      this.userService.register(this.registrationForm.value);
+    }
   }
 
 }

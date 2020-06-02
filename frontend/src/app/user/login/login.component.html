@@ -3,16 +3,19 @@
   <p>
     If you don't have an account, please go to <button class="link-button" mat-button routerLink='/registration'>registration</button> page.
   </p>
-  <form>
+  <form [formGroup]="loginForm">
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
-      <input matInput type="email">
+      <input matInput type="email" formControlName="email" required>
+      <mat-error *ngIf="email.errors?.required">Please, enter your email.</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Password</mat-label>
-      <input matInput type="password">
+      <input matInput type="password" formControlName="password" required>
+      <mat-error *ngIf="password.errors?.required">Please, enter your password.</mat-error>
+      <mat-error *ngIf="password.errors?.minlength">Your password should have at least 8 characters.</mat-error>
     </mat-form-field>
-    <button class="submit-button" mat-flat-button>Submit</button>
+    <button class="submit-button" mat-flat-button (click)="login()">Submit</button>
   </form>
 </mat-card>
 

@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-earthing-graph',
+  templateUrl: './earthing-graph.component.html',
+  styleUrls: ['./earthing-graph.component.css']
+})
+export class EarthingGraphComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

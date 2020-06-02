@@ -4,27 +4,30 @@
     <mat-form-field appearance="outline">
       <mat-label>First name</mat-label>
       <input matInput type="text" formControlName="firstName" required>
+      <mat-error *ngIf="firstName.errors?.required">Please, enter your first name.</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Last name</mat-label>
       <input matInput type="text" formControlName="lastName" required>
+      <mat-error *ngIf="lastName.errors?.required">Please, enter your last name.</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
       <input matInput type="email" formControlName="email" required>
+      <mat-error *ngIf="email.errors?.required">Please, enter your email.</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Password</mat-label>
       <input matInput type="password" formControlName="password" required>
+      <mat-error *ngIf="password.errors?.required">Please, enter your password.</mat-error>
+      <mat-error *ngIf="password.errors?.minlength">Your password should have at least 8 characters.</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Confirm password</mat-label>
       <input matInput type="password" formControlName="passwordConfirmation" required>
     </mat-form-field>
-    <button class="submit-button" mat-flat-button>Submit</button>
+    <button class="submit-button" mat-flat-button (click)="register()">Submit</button>
   </form>
 </mat-card>
-
-
 
 
