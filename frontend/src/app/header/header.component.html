@@ -7,8 +7,9 @@
     <button class="link-button" mat-button>Healt and safety</button>
     <button class="link-button" mat-button>Contact</button>
     <!-- <span class="link-spacer"></span> -->
-    <button class="link-button" mat-button>Software</button>
-    <button class="link-button" mat-button routerLink='/login'>Login</button>
-    <button class="link-button" mat-button routerLink='/registration'>Register</button>
+    <button class="link-button" mat-button routerLink='/earthing-graph'>Software</button>
+    <button *ngIf="!userIsAuthenticated" class="link-button" mat-button routerLink='/login'>Login</button>
+    <button *ngIf="!userIsAuthenticated" class="link-button" mat-button routerLink='/registration'>Register</button>
+    <button *ngIf="userIsAuthenticated" class="link-button" mat-button (click)="logout()">Logout</button>
   </span>
 </mat-toolbar>
