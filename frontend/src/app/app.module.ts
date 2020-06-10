@@ -12,12 +12,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { EarthingGraphComponent } from './software/earthing-graph/earthing-graph.component';
+import { HomeComponent } from './info-pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { EarthingGraphComponent } from './software/earthing-graph/earthing-graph
     HeaderComponent,
     LoginComponent,
     RegistrationComponent,
-    EarthingGraphComponent
+    EarthingGraphComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { EarthingGraphComponent } from './software/earthing-graph/earthing-graph
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

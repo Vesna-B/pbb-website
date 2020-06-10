@@ -1,7 +1,7 @@
-/* .mat-toolbar {
-    position: fixed;
-    top: 0%
-} */
+.container {
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
 
 .example-spacer {
     flex: 1 1 auto;
@@ -15,12 +15,10 @@
     margin-left: 3%;
 }
 
-.list-of-links {
+.after-last-button {
     margin-right: 3%;
 }
 
-.link-spacer {
-    margin-left: 4%;
-    margin-right: 4%;
-}
+
+
 

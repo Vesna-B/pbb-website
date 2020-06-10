@@ -1,15 +1,24 @@
-<mat-toolbar>
-  <span class="logo">LOGO</span>
+<mat-toolbar class="container">
+  <span class="logo"><a href="/home">LOGO</a></span>
+
   <span class="example-spacer"></span>
-  <span class="list-of-links">
-    <button class="link-button" mat-button>About</button>
-    <button class="link-button" mat-button>Portfolio</button>
-    <button class="link-button" mat-button>Healt and safety</button>
-    <button class="link-button" mat-button>Contact</button>
-    <!-- <span class="link-spacer"></span> -->
-    <button class="link-button" mat-button routerLink='/earthing-graph'>Software</button>
-    <button *ngIf="!userIsAuthenticated" class="link-button" mat-button routerLink='/login'>Login</button>
-    <button *ngIf="!userIsAuthenticated" class="link-button" mat-button routerLink='/registration'>Register</button>
-    <button *ngIf="userIsAuthenticated" class="link-button" mat-button (click)="logout()">Logout</button>
-  </span>
+
+  <button class="link-button" mat-button>About</button>
+  <button class="link-button" mat-button>Portfolio</button>
+  <button class="link-button" mat-button>Team</button>
+  <button class="link-button" mat-button>Services</button>
+  <button class="link-button" mat-button>Healt and safety</button>
+  <button class="link-button" mat-button>Contact</button>
+
+  <span class="example-spacer"></span>
+
+  <button class="link-button" mat-button routerLink='/earthing-graph'>Software</button>
+  <button *ngIf="!userIsAuthenticated" class="link-button" mat-button [matMenuTriggerFor]="menu">Signup</button>
+  <mat-menu #menu="matMenu">
+    <button class="link-button" mat-menu-item routerLink='/login'>Login</button>
+    <button class="link-button" mat-menu-item routerLink='/registration'>Register</button>
+  </mat-menu>
+  <button *ngIf="userIsAuthenticated" class="link-button" mat-button (click)="logout()">Logout</button>
+
+  <span class="after-last-button"></span>
 </mat-toolbar>

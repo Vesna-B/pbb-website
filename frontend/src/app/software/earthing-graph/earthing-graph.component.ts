@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-earthing-graph',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EarthingGraphComponent implements OnInit {
 
+  form: FormGroup;
+
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

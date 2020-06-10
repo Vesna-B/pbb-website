@@ -5,9 +5,11 @@ import { AuthGuard } from './user/auth.guard';
 import { LoginComponent } from './user/login/login.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { EarthingGraphComponent } from './software/earthing-graph/earthing-graph.component';
+import { HomeComponent } from './info-pages/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/registration', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'earthing-graph', component: EarthingGraphComponent, canActivate: [AuthGuard] }
