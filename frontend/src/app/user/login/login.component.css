@@ -6,6 +6,7 @@
 }
 
 .mat-form-field {
+    margin-top: 2%;
     width: 100%;
 }
 
@@ -20,6 +21,7 @@
 }
 
 .submit-button {
+    margin-top: 5%;
     color: white;
     background-color: rgb(237, 31, 36); 
 }

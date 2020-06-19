@@ -3,16 +3,25 @@
     flex-wrap: wrap;
 }
 
+.logo {
+    margin-left: 3%;
+}
+
+.image {
+    max-height: 60px;
+}
+
 .example-spacer {
     flex: 1 1 auto;
 }
 
-.link-button {
-    color: red
+.link-groups-spacer {
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
-.logo {
-    margin-left: 3%;
+.link-button {
+    color: red
 }
 
 .after-last-button {

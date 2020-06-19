@@ -1,46 +1,58 @@
-<form class="myForm">
-  <table>
-    <tr>
-      <td>
-        <label>First</label>
-      </td>
-      <td>
-        <mat-form-field>
-          <input matInput type="number">
-        </mat-form-field>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <label>Second</label>
-      </td>
-      <td>
-        <mat-form-field>
-          <input matInput type="number">
-        </mat-form-field>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <label>Third</label>
-      </td>
-      <td>
-        <mat-form-field>
-          <input matInput type="number">
-        </mat-form-field>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <label>File</label>
-      </td>
-      <td>
-        <div>
-          <input type="file">
-        </div>
-      </td>
-    </tr>
-  </table>
-
-  
+<div>
+  <h2>WELCOME</h2>
+</div>
+<hr>
+<form class="myForm" [formGroup]="form" (ngSubmit)="submit()">
+  <div>
+    <label class="label-style">IuzemljivacaEff</label>
+    <input class="input-style" type="number" formControlName="IuzemljivacaEff" required/>
+    <div *ngIf="IuzemljivacaEff.errors?.required">Obavezno</div>
+  </div>
+  <div>
+    <label class="label-style">duzinaSegmenta</label>
+    <input class="input-style" type="number" formControlName="duzinaSegmenta" required/>
+  </div>
+  <div>
+    <label class="label-style">roZemlje</label>
+    <input class="input-style" type="number" formControlName="roZemlje" required>
+  </div>
+  <div>
+    <label class="label-style">dl</label>
+    <input class="input-style" type="number" formControlName="dl" required>
+  </div>
+  <div>
+    <label class="label-style">GranicaUdaljenostiOdUzemljivaca</label>
+    <input class="input-style" type="number" formControlName="granicaUdaljenostiOdUzemljivaca" required>
+  </div>
+  <div>
+    <label class="label-style">korakMrezeNaZemlji</label>
+    <input class="input-style" type="number" formControlName="korakMrezeNaZemlji" required>
+  </div>
+  <div>
+    <label class="label-style">Udoz</label>
+    <input class="input-style" type="number" formControlName="Udoz" required>
+  </div>
+  <div>
+    <label class="label-style">Rcoveka</label>
+    <input class="input-style" type="number" formControlName="Rcoveka" required>
+  </div>
+  <div>
+    <label class="label-style">Dstopala</label>
+    <input class="input-style" type="number" formControlName="Dstopala" required>
+  </div>
+  <div>
+    <label class="label-style">rotuc</label>
+    <input class="input-style" type="number" formControlName="rotuc" required>
+  </div>
+  <div>
+    <label class="label-style">ltuc</label>
+    <input class="input-style" type="number" formControlName="ltuc" required>
+  </div>
+  <div>
+    <label class="label-style">imeFajlaUzemljivacSaStrujom</label>
+    <input type="file" (change)="pickFile($event)">
+  </div>
+  <div>
+    <button class="submit-button" mat-button type="submit">Submit</button>
+  </div>
 </form>
