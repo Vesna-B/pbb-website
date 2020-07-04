@@ -23,7 +23,7 @@ const uzemljivacRuMatricaSaLikovima = (prosledjeniUzemljivac, roZemlje, dl) => {
             
                 if (r1 != 0  &&  r2 != 0  &&  r1 > Math.pow(10, -15)  &&  r2 > Math.pow(10, -15)) {
                     sumaLn = sumaLn + Math.log((r1 + r2 + uzemljivac.element[i].L) / (r1 + r2 - uzemljivac.element[i].L));
-                    sumaLnLik = sumaLnLik + Math.log((r1Lik + r2Lik + uzemljivac.elementLik[i].L) / (r1Lik + r2Lik - uzemljivac.elementLik[i].L));
+                    sumaLnLik = sumaLnLik + Math.log((r1Lik + r2Lik + uzemljivac.elementLik[i].L) / (r1 + r2 - uzemljivac.elementLik[i].L));
                     m = m + 1;
                 }   
             }
@@ -41,6 +41,7 @@ const uzemljivacRuMatricaSaLikovima = (prosledjeniUzemljivac, roZemlje, dl) => {
             }
         }
     }
+
 
     I1transponovano = mathjs.transpose(uzemljivac.I1);
     RuMatricaInverzna = mathjs.inv(uzemljivac.RuMatrica);

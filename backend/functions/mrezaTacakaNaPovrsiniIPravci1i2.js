@@ -33,6 +33,7 @@ const mrezaTacakaNaPovrsiniIPravci1i2 = (uzemljivac, granicaUdaljenostiOdUzemlji
     korakX = (zbirXmaxGranica - razlikaXminGranica) / (XbrojTacakaMreze - 1);
     korakY = (zbirYmaxGranica - razlikaYminGranica) / (YbrojTacakaMreze - 1);
 
+
     nizX = new Array(XbrojTacakaMreze);
     for (let i = 0; i < XbrojTacakaMreze; i++) {
         nizX[i] = i * korakX;
@@ -46,33 +47,36 @@ const mrezaTacakaNaPovrsiniIPravci1i2 = (uzemljivac, granicaUdaljenostiOdUzemlji
         nizZ[i] = 0;
     }
 
-    pom = XbrojTacakaMreze * ((Ymin + Ymax) / 2);
 
     pravacIx = new Array(XbrojTacakaMreze);
     for (let i = 0; i < XbrojTacakaMreze; i++) {
         pravacIx[i] = i * korakX;
     }
-    pravacIy = new Array(pom);
-    for (let i = 0; i < pom; i++) {
-        pravacIy[i] = 1;
+    pravacIy = new Array(XbrojTacakaMreze);
+    for (let i = 0; i < XbrojTacakaMreze; i++) {
+        pravacIy[i] = (Ymin + Ymax) / 2;
     }
     pravacIz = new Array(XbrojTacakaMreze);
     for (let i = 0; i < XbrojTacakaMreze; i++) {
         pravacIz[i] = 0;
     }
+    
+
+    mrezaTacaka = {
+        x: nizX,
+        y: nizY,
+        z: nizZ
+    }
+    pravacI = {
+        x: pravacIx,
+        y: pravacIy,
+        z: pravacIz
+    }
 
 
     return XYtackeNaPovrsini = {
-        mrezaTacaka = {
-            x: nizX,
-            y: nizY,
-            z: nizZ
-        },
-        pravacI = {
-            x: pravacIx,
-            y: pravacIy,
-            z: pravacIz
-        }
+        mrezaTacaka: mrezaTacaka,
+        pravacI: pravacI
     }
     
 }

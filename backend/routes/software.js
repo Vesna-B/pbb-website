@@ -6,6 +6,9 @@ const Matrix = require('node-matrices');
 
 const geometrija = require('../functions/geometrija');
 const citanjePU = require('../functions/citanjePodatakaUzemljivac');
+const uzemljivacRuM = require('../functions/uzemljivacRuMatricaSaLikovima');
+const mrezaTacaka = require('../functions/mrezaTacakaNaPovrsiniIPravci1i2');
+const potencijalPravca = require('../functions/potencijalPravcaTacakaSaLikovima');
 
 const router = express.Router();
 
@@ -23,43 +26,48 @@ const storage = multer.diskStorage({
 });
 
 
-//------------------------------------ uzemljivac -----------------------------
-// uzemljivac = {
-//     element, //niz objekata element
-//     elementLik, //niz objekata elementLik
-//     brojElemenata, //number
-//     RuMatrica, //matrica (brojElemenata, brojeElemenata)
-//     Ru, //
-//     U,
-//     I,
-//     Ivektor, //matrica (n, 1) inicijalizovana 0
-//     I1 //matrica (n, 1) inicijalizovana 1
-// }
-
-// element = {
-//     L, //number
-//     A, //tacka { x, y, z}
-//     B, //tacka
-//     C, //niz tacaka, odnosno matrica
-//     brojTacakaNaElementu //number
-// }
-
-// elementLik = {
-//     L, //number
-//     A, //tacka
-//     B  //tacka
-// }
-
-//------------------------------------------------------------------------------------------
-
-
 
 //router.post("", multer({ storage: storage }).single("imeFajla"), (req, res, next) => {
 
 router.post("", (req, res, next) => {           //test - vratiti prethodnu liniju, izbrisati ovu
-    //let matrix;
     let fileMatrix;
-    let uzemljivacDeo;
+    let uzemljivac;
+
+    //------------------- original -----------------------------
+
+    // IuzemljivacaEff = req.body.IuzemljivacaEff;
+    // duzinaSegmenta = req.body.duzinaSegmenta;
+    // roZemlje = req.body.roZemlje;
+    // dl = req.body.dl;
+    // granicaUdaljenostiOdUzemljivaca = req.body.granicaUdaljenostiOdUzemljivaca;
+    // korakMrezeNaZemlji = req.body.korakMrezeNaZemlji;
+    // Rcoveka = req.body.Rcoveka;
+    // Dstopala = req.body.Dstopala;
+    // rotuc = req.body.rotuc;
+    // ltuc = req.body.ltuc;
+
+    //--------------------------------------------------------------
+
+
+    //--------------------------- test ---------------------------------------------
+
+    IuzemljivacaEff = 2.97;
+    duzinaSegmenta = 0.1;
+    roZemlje = 50;
+    dl = 0.01;
+    granicaUdaljenostiOdUzemljivaca = 45;
+    korakMrezeNaZemlji = 0.5;
+    Rcoveka = 1000;
+    Dstopala = 0.16;
+    rotuc = 2000;
+    ltuc = 0;
+
+    //------------------------ kraj testa -------------------------------------------
+
+
+    Rstopala = roZemlje / (2 * Dstopala);
+    Stuc = Math.pow((Dstopala / 2), 2) * Math.PI;
+    Rt = rotuc * ltuc / Stuc;
 
     const url = "files/" + 'ulazni_fajl_primer.txt-1593012373244.txt';
 
@@ -76,33 +84,33 @@ router.post("", (req, res, next) => {           //test - vratiti prethodnu linij
             }
         }
 
-        //matrix = Matrix.zeros(n, 6);
-        //console.log(matrix);                        //test
-
         fileMatrix = mathjs.zeros(n, 6);
-        console.log(fileMatrix);
 
         for (let i = 0; i < n; i++) {
             let rowData = rows[i].trimRight();
             rowData = rowData.toString().split("\t");
-
             for (let j = 0; j < 6; j++) {
-                //matrix = matrix.replace(i, j, rowData[j]);
-                fileMatrix.subset(mathjs.index(i, j), rowData[j]);
+                data = parseFloat(rowData[j]);
+                fileMatrix.subset(mathjs.index(i, j), data);
             }   
         }
 
-        //console.log(matrix);        //test - problem
+        uzemljivac = citanjePU.citanjePodatakaUzemljivac(fileMatrix);         //radi
 
-        // console.log("After reading \n");
-        // console.log(fileMatrix);
-
-        uzemljivacDeo = citanjePU.citanjePodatakaUzemljivac(fileMatrix);
-        //console.log(uzemljivacDeo);       //test
+        uzemljivac.I = IuzemljivacaEff;      //radi
+        
+        uzemljivac = uzemljivacRuM.uzemljivacRuMatricaSaLikovima(uzemljivac, roZemlje, dl);   //radi - proveriti tacnost
+        
+        XYZtackeNaPovrsini = mrezaTacaka.mrezaTacakaNaPovrsiniIPravci1i2(uzemljivac, granicaUdaljenostiOdUzemljivaca, korakMrezeNaZemlji);  //radi - proveriti tacnost
         
 
-    })
+        // PRETHODNI KORACI !!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+
+        //pravacI = potencijalPravca.potencijalPravcaTacakaSaLikovima(uzemljivac, XYZtackeNaPovrsini.pravacI, roZemlje, Rcoveka, Rstopala, Rt);
+        //console.log(pravacI);
+
+    })
 });
 
 

@@ -4,8 +4,8 @@ const geometrija = require('./geometrija');
 const citanjePodatakaUzemljivac = (matricaPodatakaIzUlaznogFajla) => {
     matricaPodatakaZaObradu = matricaPodatakaIzUlaznogFajla;
     n = matricaPodatakaZaObradu.size();
-    brojElemenata = n[0];       //broj kolona u matrici
-    brojTacakaNaElementu = 100;
+    brojElemenata = n[0];               //broj vrsta u matrici
+    brojTacakaNaElementu = 100;          
 
     element = new Array();
     elementLik = new Array();
@@ -22,7 +22,7 @@ const citanjePodatakaUzemljivac = (matricaPodatakaIzUlaznogFajla) => {
         A = { x: ax, y: ay, z: az }
         B = { x: bx, y: by, z: bz }
         L = geometrija.rastojanje2TackeU3D(A, B);
-        C = geometrija.tackeCnaDuziABu3D(A, B, brojTacakaNaElementu);           //ne radi dobro
+        C = geometrija.tackeCnaDuziABu3D(A, B, brojTacakaNaElementu);           
 
         likA = { x: ax, y: ay, z: -az }
         likB = { x: bx, y: by, z: -bz }
@@ -42,16 +42,13 @@ const citanjePodatakaUzemljivac = (matricaPodatakaIzUlaznogFajla) => {
             L: likL
         }
     }
-
-    //Ru
-    //U
-    //I
+    
 
     I1 = mathjs.ones(brojElemenata, 1);
     Ivektor = mathjs.zeros(brojElemenata, 1);
     RuMatrica = mathjs.zeros(brojElemenata, brojElemenata);
 
-    uzemljivacDeo = {
+    uzemljivac = {
         element: element,
         elementLik: elementLik,
         brojElemenata: brojElemenata,
@@ -63,7 +60,7 @@ const citanjePodatakaUzemljivac = (matricaPodatakaIzUlaznogFajla) => {
         I1: I1
     }
 
-    return uzemljivacDeo;
+    return uzemljivac;
 }
 
 

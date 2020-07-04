@@ -21,7 +21,7 @@ export class EarthingGraphComponent implements OnInit {
       dl: new FormControl(null, Validators.required),
       granicaUdaljenostiOdUzemljivaca: new FormControl(null, Validators.required),
       korakMrezeNaZemlji: new FormControl(null, Validators.required),
-      Udoz: new FormControl(null, Validators.required),
+      //Udoz: new FormControl(null, Validators.required),
       Rcoveka: new FormControl(null, Validators.required),
       Dstopala: new FormControl(null, Validators.required),
       rotuc: new FormControl(null, Validators.required),
@@ -36,7 +36,7 @@ export class EarthingGraphComponent implements OnInit {
   get dl() { return this.form.get('dl') }
   get granicaUdaljenostiOdUzemljivaca() { return this.form.get('granicaUdaljenostiOdUzemljivaca') }
   get korakMrezeNaZemlji() { return this.form.get('korakMrezeNaZemlji') }
-  get Udoz() { return this.form.get('Udoz') }
+  //get Udoz() { return this.form.get('Udoz') }
   get Rcoveka() { return this.form.get('Rcoveka') }
   get Dstopala() { return this.form.get('Dstopala') }
   get rotuc() { return this.form.get('rotuc') }

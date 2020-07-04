@@ -17,7 +17,7 @@ export class SoftwareService {
     dataToSend.append("dl", data.dl);
     dataToSend.append("granicaUdaljenostiOdUzemljivaca", data.granicaUdaljenostiOdUzemljivaca);
     dataToSend.append("korakMrezeNaZemlji", data.korakMrezeNaZemlji);
-    dataToSend.append("Udoz", data.Udoz);
+    //dataToSend.append("Udoz", data.Udoz);
     dataToSend.append("Rcoveka", data.Rcoveka);
     dataToSend.append("Dstopala", data.Dstopala);
     dataToSend.append("rotuc", data.rotuc);
