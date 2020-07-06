@@ -19,7 +19,11 @@ const potencijal1TackeUProstoruSaLikovima = (uzemljivac, tackaA, roZemlje) => {
         RiTackaA[i] =  alfaIK + alfaIlikK;
     }
 
-    return V1 = mathjs.multiply(RiTackaA, uzemljivac.Ivektor);
+
+    V1 = mathjs.multiply(RiTackaA, uzemljivac.Ivektor);
+    V1 = V1.subset(mathjs.index(0));
+    
+    return V1;
 }
 
 

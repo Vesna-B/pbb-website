@@ -103,14 +103,19 @@ router.post("", (req, res, next) => {           //test - vratiti prethodnu linij
         
         XYZtackeNaPovrsini = mrezaTacaka.mrezaTacakaNaPovrsiniIPravci1i2(uzemljivac, granicaUdaljenostiOdUzemljivaca, korakMrezeNaZemlji);  //radi - proveriti tacnost
         
+        uzemljivac.Ru = mathjs.re(uzemljivac.Ru);                   
+        uzemljivac.RuMatrica = mathjs.re(uzemljivac.RuMatrica);
 
-        // PRETHODNI KORACI !!!!!!!!!!!!!!!!!!!!!!!!!!!
+        uzemljivac.U = mathjs.multiply(uzemljivac.Ru, uzemljivac.I);    //radi - matrica 1x1
 
+        RuMatricaInverzna = mathjs.inv(uzemljivac.RuMatrica);
+        cinilac = mathjs.multiply(RuMatricaInverzna, uzemljivac.I1);
+        uzemljivac.Ivektor = mathjs.multiply(cinilac, uzemljivac.U);
+    
+        pravacI = potencijalPravca.potencijalPravcaTacakaSaLikovima(uzemljivac, XYZtackeNaPovrsini.pravacI, roZemlje, Rcoveka, Rstopala, Rt);   //radi - proveriti tacnost
 
-        //pravacI = potencijalPravca.potencijalPravcaTacakaSaLikovima(uzemljivac, XYZtackeNaPovrsini.pravacI, roZemlje, Rcoveka, Rstopala, Rt);
-        //console.log(pravacI);
+    });     //end fs.read()
 
-    })
 });
 
 

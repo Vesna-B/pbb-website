@@ -38,11 +38,11 @@ const potencijalPravcaTacakaSaLikovima = (uzemljivac, XYZtacke, roZemlje, Rcovek
         y: XYZtacke.y[n-1],
         z: XYZtacke.z[n-1]
     }
+    
+    U = uzemljivac.U.subset(mathjs.index(0, 0));
 
     cinilacUd = Rcoveka / (Rcoveka + Rstopala/2 + Rt)
     cinilacUk = Rcoveka / (Rcoveka + 2*Rstopala + Rt)
-
-    console.log("uzemljivac.U = " + uzemljivac.U);
 
     for (let i = 0; i < n; i++) {
         tacka = {
@@ -51,15 +51,12 @@ const potencijalPravcaTacakaSaLikovima = (uzemljivac, XYZtacke, roZemlje, Rcovek
             z: XYZtacke.z[i]
         }
         V[i] = potencijal.potencijal1TackeUProstoruSaLikovima(uzemljivac, tacka, roZemlje);
-        Ed[i] = uzemljivac.U - V[i];
+        Ed[i] = U - V[i];
         Ek[i] = ek.EkUTackiANaPravcuAB(uzemljivac, tacka, A, B, roZemlje);
         Ud[i] = cinilacUd * Ed[i];
         Uk[i] = cinilacUk * Ek[i];
-
-        console.log("V[" + i + "] = " + V[i]);
-        console.log("Ed[" + i + "] = " + Ed[i]);
     }
-
+    
 
     return pravac = {
         V: V,
