@@ -15,8 +15,9 @@ const tackeCnaDuziABu3D = (A, B, broj_tacaka) => {
     korak = AB / (broj_tacaka - 1);                 //matlab: linspace(0, AB, broj_tacaka) ukljucuje 0 i AB
     
     AC = new Array();
-    for (let i = 0; i < broj_tacaka; i++) {
-        AC[i] = i * korak;
+    AC[0] = 0;
+    for (let i = 1; i < broj_tacaka; i++) {
+        AC[i] = AC[i-1] + korak;
     }
     CB = new Array();
     for (let i = 0; i < broj_tacaka; i++) {

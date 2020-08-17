@@ -47,6 +47,7 @@ const citanjePodatakaUzemljivac = (matricaPodatakaIzUlaznogFajla) => {
     I1 = mathjs.ones(brojElemenata, 1);
     Ivektor = mathjs.zeros(brojElemenata, 1);
     RuMatrica = mathjs.zeros(brojElemenata, brojElemenata);
+    
 
     uzemljivac = {
         element: element,

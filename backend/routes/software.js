@@ -32,6 +32,8 @@ const storage = multer.diskStorage({
 router.post("", (req, res, next) => {           //test - vratiti prethodnu liniju, izbrisati ovu
     let fileMatrix;
     let uzemljivac;
+    let XYZtackeNaPovrsini;
+    let pravacI;
 
     //------------------- original -----------------------------
 
@@ -114,7 +116,12 @@ router.post("", (req, res, next) => {           //test - vratiti prethodnu linij
     
         pravacI = potencijalPravca.potencijalPravcaTacakaSaLikovima(uzemljivac, XYZtackeNaPovrsini.pravacI, roZemlje, Rcoveka, Rstopala, Rt);   //radi - proveriti tacnost
 
-    });     //end fs.read()
+        res.status(200).json({
+            uzemljivac: uzemljivac,
+            XYZtackeNaPovrsini: XYZtackeNaPovrsini,
+            pravacI: pravacI
+        });
+    })     //end fs.read()
 
 });
 
