@@ -30,7 +30,7 @@ export class SoftwareService {
     this.http.post<{ uzemljivac: any, XYZtackeNaPovrsini: any, pravacI: any }>('http://localhost:3000/software', dataToSend)
       .subscribe(response => {
         this.graphData = {
-          uzemmljivac: response.uzemljivac,
+          uzemljivac: response.uzemljivac,
           XYZtackeNaPovrsini: response.XYZtackeNaPovrsini,
           pravacI: response.pravacI
         }
