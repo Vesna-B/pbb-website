@@ -1,26 +1,46 @@
-<mat-toolbar class="container">
-  <a class="logo" href="/home">
-    <img class="image" src="../../assets/img/logo-demo.jpg" alt="website logo">
-  </a>
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-icon-button color="black" [matMenuTriggerFor]="smallScreen" fxShow="true" fxHide.gt-sm="true">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #smallScreen>
+      <button class="link-button" mat-menu-item>About</button>
+      <button class="link-button" mat-menu-item>Portfolio</button>
+      <button class="link-button" mat-menu-item>Team</button>
+      <button class="link-button" mat-menu-item>Services</button>
+      <button class="link-button" mat-menu-item>Contact</button>       
+      <span class="link-groups-spacer"></span>      
+      <button class="link-button" mat-menu-item routerLink='/earthing-graph'>Software</button>
+      <button *ngIf="!userIsAuthenticated" class="link-button" mat-menu-item [matMenuTriggerFor]="menu">Signup</button>
+      <mat-menu #menu="matMenu">
+        <button class="link-button" mat-menu-item routerLink='/login'>Login</button>
+        <button class="link-button" mat-menu-item routerLink='/registration'>Register</button>
+      </mat-menu>
+      <button *ngIf="userIsAuthenticated" class="link-button" mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
 
-  <span class="example-spacer"></span>
 
-  <button class="link-button" mat-button>About</button>
-  <button class="link-button" mat-button>Portfolio</button>
-  <button class="link-button" mat-button>Team</button>
-  <button class="link-button" mat-button>Services</button>
-  <button class="link-button" mat-button>Contact</button>
-
-  <span class="link-groups-spacer"></span>
-  <!-- <span class="example-spacer"></span> -->
-
-  <button class="link-button" mat-button routerLink='/earthing-graph'>Software</button>
-  <button *ngIf="!userIsAuthenticated" class="link-button" mat-button [matMenuTriggerFor]="menu">Signup</button>
-  <mat-menu #menu="matMenu">
-    <button class="link-button" mat-menu-item routerLink='/login'>Login</button>
-    <button class="link-button" mat-menu-item routerLink='/registration'>Register</button>
-  </mat-menu>
-  <button *ngIf="userIsAuthenticated" class="link-button" mat-button (click)="logout()">Logout</button>
-
-  <span class="after-last-button"></span>
+    <a class="logo" href="/home">
+      <img class="image" src="../../assets/img/logo-demo.jpg" alt="website logo">
+    </a>
+    
+    <span class="example-spacer"></span>
+    
+    <div fxShow="true" fxHide.lt-md>
+      <button class="link-button" mat-button>About</button>
+      <button class="link-button" mat-button>Portfolio</button>
+      <button class="link-button" mat-button>Team</button>
+      <button class="link-button" mat-button>Services</button>
+      <button class="link-button" mat-button>Contact</button>        
+      <span class="link-groups-spacer"></span>      
+      <button class="link-button" mat-button routerLink='/earthing-graph'>Software</button>
+      <button *ngIf="!userIsAuthenticated" class="link-button" mat-button [matMenuTriggerFor]="menu">Signup</button>
+      <mat-menu #menu="matMenu">
+        <button class="link-button" mat-menu-item routerLink='/login'>Login</button>
+        <button class="link-button" mat-menu-item routerLink='/registration'>Register</button>
+      </mat-menu>
+      <button *ngIf="userIsAuthenticated" class="link-button" mat-button (click)="logout()">Logout</button>    
+    </div>
+    <span class="after-last-button"></span>
+  </mat-toolbar-row>
 </mat-toolbar>

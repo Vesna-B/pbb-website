@@ -24,7 +24,7 @@
 
 
 
-body {
+.container {
     min-height: 100%;
     min-width: 100%;
     background-image: url(../../../assets/img/background-4.jpg);
