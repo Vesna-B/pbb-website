@@ -1,13 +1,26 @@
-/* 
-.container {
-    background-image: url(../../../assets/img/background-4.jpg);
+.image {
+    min-height: 100%;
     min-width: 100%;
-    position: fixed; 
-    background-size: 100%;
     background-size: cover; 
     background-position: center;
-    left: 0;
     background-repeat: no-repeat;
 }
-*/
+
+.title {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.title, .p2 {
+    color: rgb(237, 31, 36);
+}
+
+.description {
+    margin: 2% 3% 5%;
+    text-align: center;
+    font-size: 25px;
+}
+
+
+
 

@@ -1,3 +1,12 @@
+.container {
+    min-height: 100%;
+    min-width: 100%;
+    background-image: url(../../../assets/img/man_woman.jpg);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .mat-card {
     margin-left: 25%;
     margin-right: 25%;

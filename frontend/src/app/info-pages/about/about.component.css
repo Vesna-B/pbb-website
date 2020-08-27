@@ -1,0 +1,14 @@
+.title {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.title, .p2, .p4 {
+    color: rgb(237, 31, 36);
+}
+
+.description {
+    margin: 2% 3% 5%;
+    text-align: center;
+    font-size: 22px;
+}

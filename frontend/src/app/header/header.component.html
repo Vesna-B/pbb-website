@@ -4,11 +4,10 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #smallScreen>
-      <button class="link-button" mat-menu-item>About</button>
-      <button class="link-button" mat-menu-item>Portfolio</button>
-      <button class="link-button" mat-menu-item>Team</button>
-      <button class="link-button" mat-menu-item>Services</button>
-      <button class="link-button" mat-menu-item>Contact</button>       
+      <button class="link-button" mat-menu-item routerLink='/about'>About</button>
+      <button class="link-button" mat-menu-item routerLink='/services'>Services</button>
+      <button class="link-button" mat-menu-item routerLink='/organization-chart'>Organization chart</button>
+      <button class="link-button" mat-menu-item routerLink='/contact'>Contact</button>       
       <span class="link-groups-spacer"></span>      
       <button class="link-button" mat-menu-item routerLink='/earthing-graph'>Software</button>
       <button *ngIf="!userIsAuthenticated" class="link-button" mat-menu-item [matMenuTriggerFor]="menu">Signup</button>
@@ -27,11 +26,10 @@
     <span class="example-spacer"></span>
     
     <div fxShow="true" fxHide.lt-md>
-      <button class="link-button" mat-button>About</button>
-      <button class="link-button" mat-button>Portfolio</button>
-      <button class="link-button" mat-button>Team</button>
-      <button class="link-button" mat-button>Services</button>
-      <button class="link-button" mat-button>Contact</button>        
+      <button class="link-button" mat-button routerLink='/about'>About</button>
+      <button class="link-button" mat-button routerLink='/services'>Services</button>
+      <button class="link-button" mat-button routerLink='/organization-chart'>Organization chart</button>
+      <button class="link-button" mat-button routerLink='/contact'>Contact</button>        
       <span class="link-groups-spacer"></span>      
       <button class="link-button" mat-button routerLink='/earthing-graph'>Software</button>
       <button *ngIf="!userIsAuthenticated" class="link-button" mat-button [matMenuTriggerFor]="menu">Signup</button>

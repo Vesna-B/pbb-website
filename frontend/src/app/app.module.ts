@@ -18,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './user/login/login.component';
@@ -26,6 +27,10 @@ import { EarthingGraphComponent } from './software/earthing-graph/earthing-graph
 import { HomeComponent } from './info-pages/home/home.component';
 //import { from } from 'rxjs';
 import { ReviewEarthPotentialRiseComponent } from './software/review-earth-potential-rise/review-earth-potential-rise.component';
+import { AboutComponent } from './info-pages/about/about.component';
+import { PortfolioComponent } from './info-pages/portfolio/portfolio.component';
+import { OrgChartComponent } from './info-pages/org-chart/org-chart.component';
+import { ContactComponent } from './info-pages/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,11 @@ import { ReviewEarthPotentialRiseComponent } from './software/review-earth-poten
     RegistrationComponent,
     EarthingGraphComponent,
     HomeComponent,
-    ReviewEarthPotentialRiseComponent
+    ReviewEarthPotentialRiseComponent,
+    AboutComponent,
+    PortfolioComponent,
+    OrgChartComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +63,8 @@ import { ReviewEarthPotentialRiseComponent } from './software/review-earth-poten
     MatSelectModule,
     MatMenuModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
