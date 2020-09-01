@@ -1,25 +1,46 @@
+.welcome {
+    text-align: center;
+}
+
+mat-expansion-panel {
+    margin: 2%;
+}
+
+.example-container {
+    height: 200px;
+    overflow: auto;
+  }
+  
+table {
+    width: 100%;
+}
+
+.delete-button {
+    color:  rgb(237, 31, 36);
+}
+
+
+/* form style */
+
 .myForm {
     margin: 5%;
 }
 
-div {
-    margin: 22px 10px;
+mat-form-field {
+    width: 80%
 }
 
-.label-style {
+.form-margin {
+    max-width: 500px;
+}
+
+.file-input-label {
     margin-right: 10px;
-}
-
-.input-style {  
-    width: 200px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 0.1px solid grey;
-    border-radius: 4px;   
 }
 
 .submit-button {
     margin-top: 5%;
     color: white;
     background-color: rgb(237, 31, 36); 
-} 
+}
+

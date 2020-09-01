@@ -20,16 +20,17 @@ const storage = multer.diskStorage({
         const name = file.originalname
             .toLocaleLowerCase()
             .split(" ")
-            .join("-");
-        cb(null, name + "-" + Date.now() + "." + "txt");
+            .join("-")
+            .split(".txt");
+        cb(null, name[0] + "-" + Date.now() + "." + "txt");
     }
 });
 
 
 
-//router.post("", multer({ storage: storage }).single("imeFajla"), (req, res, next) => {
+router.post("", multer({ storage: storage }).single("imeFajla"), (req, res, next) => {
 
-router.post("", (req, res, next) => {           //test - vratiti prethodnu liniju, izbrisati ovu
+//router.post("", (req, res, next) => {           //test - vratiti prethodnu liniju, izbrisati ovu
     let fileMatrix;
     let uzemljivac;
     let XYZtackeNaPovrsini;
@@ -37,41 +38,42 @@ router.post("", (req, res, next) => {           //test - vratiti prethodnu linij
 
     //------------------- original -----------------------------
 
-    // IuzemljivacaEff = req.body.IuzemljivacaEff;
-    // duzinaSegmenta = req.body.duzinaSegmenta;
-    // roZemlje = req.body.roZemlje;
-    // dl = req.body.dl;
-    // granicaUdaljenostiOdUzemljivaca = req.body.granicaUdaljenostiOdUzemljivaca;
-    // korakMrezeNaZemlji = req.body.korakMrezeNaZemlji;
-    // Rcoveka = req.body.Rcoveka;
-    // Dstopala = req.body.Dstopala;
-    // rotuc = req.body.rotuc;
-    // ltuc = req.body.ltuc;
+    IuzemljivacaEff = parseFloat(req.body.IuzemljivacaEff);
+    roZemlje = parseFloat(req.body.roZemlje);
+    dl = parseFloat(req.body.dl);
+    granicaUdaljenostiOdUzemljivaca = parseFloat(req.body.granicaUdaljenostiOdUzemljivaca);
+    korakMrezeNaZemlji = parseFloat(req.body.korakMrezeNaZemlji);
+    Rcoveka = parseFloat(req.body.Rcoveka);
+    Dstopala = parseFloat(req.body.Dstopala);
+    rotuc = parseFloat(req.body.rotuc);
+    ltuc = parseFloat(req.body.ltuc);
 
     //--------------------------------------------------------------
 
 
     //--------------------------- test ---------------------------------------------
 
-    IuzemljivacaEff = 2.97;
-    duzinaSegmenta = 0.1;
-    roZemlje = 50;
-    dl = 0.01;
-    granicaUdaljenostiOdUzemljivaca = 45;
-    korakMrezeNaZemlji = 0.5;
-    Rcoveka = 1000;
-    Dstopala = 0.16;
-    rotuc = 2000;
-    ltuc = 0;
+    // IuzemljivacaEff = 2.97;
+    // roZemlje = 50;
+    // dl = 0.01;
+    // granicaUdaljenostiOdUzemljivaca = 45;       
+    // korakMrezeNaZemlji = 0.5;                   
+    // Rcoveka = 1000;
+    // Dstopala = 0.16;
+    // rotuc = 2000;
+    // ltuc = 0;
+
 
     //------------------------ kraj testa -------------------------------------------
 
-
+    
     Rstopala = roZemlje / (2 * Dstopala);
     Stuc = Math.pow((Dstopala / 2), 2) * Math.PI;
     Rt = rotuc * ltuc / Stuc;
 
-    const url = "files/" + 'ulazni_fajl_primer.txt-1593012373244.txt';
+    //const url = "files/" + 'ulazni_fajl_primer.txt-1593012373244.txt';
+
+    const url = "files/" + req.file.filename;
 
     fs.readFile(url, (error, data) => {
         if (error) {

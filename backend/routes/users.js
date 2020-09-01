@@ -60,6 +60,7 @@ router.post("/login", (req, res, next) => {
             res.status(200).json({
                 token: token,
                 expiresIn: 43200,
+                userType: fetchedUser.type,
                 message: 'Login successfull'
             });
         })
@@ -67,6 +68,34 @@ router.post("/login", (req, res, next) => {
             return res.status(401).json({
                 message: "Login failed"
             });
+        });
+});
+
+
+router.get("", (reg, res, next) => {
+    User.find()
+        .then(fetchedUsers => {
+            res.status(200).json({
+                users: fetchedUsers
+            });
+        })
+        .catch(err => {
+            return res.status(500).json({
+                message: "Something went wrong"
+            });
+        });
+});
+
+
+router.delete("/:id", (req, res, next) => {
+    User.deleteOne({ _id: req.params.id })
+        .then(() => {
+            res.status(200).json({
+                message: 'User is deleted successfully'
+            });
+        })
+        .catch(err => {
+            console.log(err);
         });
 });
 

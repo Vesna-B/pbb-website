@@ -1,58 +1,116 @@
-<div>
-  <h2>WELCOME</h2>
-</div>
+<h1 class="welcome">WELCOME</h1>
+
+<mat-accordion *ngIf="isAdmin">
+  <mat-expansion-panel  (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <b>All users</b>
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ panelOpenState ? 'Hide users' : 'See all users' }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="example-container">
+      <table mat-table [dataSource]="users">
+
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef> First Name </th>
+          <td mat-cell *matCellDef="let user"> {{user.firstName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef> Last Name </th>
+          <td mat-cell *matCellDef="let user"> {{user.lastName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef> Type </th>
+          <td mat-cell *matCellDef="let user"> {{user.type}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let user">
+            <button *ngIf="user.type != 'admin'" mat-button class="delete-button" (click)="deleteUser(user._id)">Delete user</button>
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
 <hr>
+
 <form class="myForm" [formGroup]="form" (ngSubmit)="submit()">
-  <div>
-    <label class="label-style">IuzemljivacaEff</label>
-    <input class="input-style" type="number" formControlName="IuzemljivacaEff" required/>
-    <!-- <div *ngIf="IuzemljivacaEff.errors?.required">Obavezno</div> -->
+  <div class="form-margin">
+    <mat-form-field appearance="outline">
+      <mat-label>Earthing current (A)</mat-label>
+      <input matInput type="number" formControlName="IuzemljivacaEff" required/>
+      <mat-error *ngIf="IuzemljivacaEff.errors?.required">This field is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Earth resistivity (ohm*m)</mat-label>
+      <input matInput type="number" formControlName="roZemlje" required>
+      <mat-error *ngIf="roZemlje.errors?.required">This field is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Earthing bar diameter (mm)</mat-label>
+      <input matInput type="number" formControlName="dl" required>
+      <mat-error *ngIf="dl.errors?.required">This field is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Plot distance from earthing (m)</mat-label>
+      <input matInput type="number" formControlName="granicaUdaljenostiOdUzemljivaca" required>
+      <mat-error *ngIf="granicaUdaljenostiOdUzemljivaca.errors?.required">This field is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Earth mesh point distance (m)</mat-label>
+      <input matInput type="number" formControlName="korakMrezeNaZemlji" required>
+      <mat-error *ngIf="korakMrezeNaZemlji.errors?.required">This field is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Human body resistivity (ohm)</mat-label>
+      <input matInput type="number" formControlName="Rcoveka" required>
+      <mat-error *ngIf="Rcoveka.errors?.required">This field is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Human foot diameter (cm)</mat-label>
+      <input matInput type="number" formControlName="Dstopala" required>
+      <mat-error *ngIf="Dstopala.errors?.required">This field is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Additional concrete layer resistivity (ohm)</mat-label>
+      <input matInput type="number" formControlName="rotuc" required>
+      <mat-error *ngIf="rotuc.errors?.required">This field is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Additional concrete layer thickness (ohm)</mat-label>
+      <input matInput type="number" formControlName="ltuc" required>
+      <mat-error *ngIf="ltuc.errors?.required">This field is required</mat-error>
+    </mat-form-field>
   </div>
-  <!-- <div>
-    <label class="label-style">duzinaSegmenta</label>
-    <input class="input-style" type="number" formControlName="duzinaSegmenta" required/>
-  </div> -->
-  <div>
-    <label class="label-style">roZemlje</label>
-    <input class="input-style" type="number" formControlName="roZemlje" required>
-  </div>
-  <div>
-    <label class="label-style">dl</label>
-    <input class="input-style" type="number" formControlName="dl" required>
-  </div>
-  <div>
-    <label class="label-style">GranicaUdaljenostiOdUzemljivaca</label>
-    <input class="input-style" type="number" formControlName="granicaUdaljenostiOdUzemljivaca" required>
-  </div>
-  <div>
-    <label class="label-style">korakMrezeNaZemlji</label>
-    <input class="input-style" type="number" formControlName="korakMrezeNaZemlji" required>
-  </div>
-  <!-- <div>
-    <label class="label-style">Udoz</label>
-    <input class="input-style" type="number" formControlName="Udoz" required>
-  </div> -->
-  <div>
-    <label class="label-style">Rcoveka</label>
-    <input class="input-style" type="number" formControlName="Rcoveka" required>
-  </div>
-  <div>
-    <label class="label-style">Dstopala</label>
-    <input class="input-style" type="number" formControlName="Dstopala" required>
-  </div>
-  <div>
-    <label class="label-style">rotuc</label>
-    <input class="input-style" type="number" formControlName="rotuc" required>
-  </div>
-  <div>
-    <label class="label-style">ltuc</label>
-    <input class="input-style" type="number" formControlName="ltuc" required>
-  </div>
-  <div>
-    <label class="label-style">imeFajlaUzemljivacSaStrujom</label>
+    
+  <div class="file-input">
+    <label class="file-input-label">Choose file with earthing data</label>
     <input type="file" (change)="pickFile($event)">
   </div>
-  <div>
-    <button class="submit-button" mat-button type="submit">Submit</button>
-  </div>
+
+  <button mat-button class="submit-button" mat-button type="submit">Submit</button>
 </form>

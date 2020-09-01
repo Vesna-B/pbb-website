@@ -15,12 +15,10 @@ export class SoftwareService {
     const dataToSend = new FormData();
 
     dataToSend.append("IuzemljivacaEff", data.IuzemljivacaEff);
-    dataToSend.append("duzinaSegmenta", data.duzinaSegmenta);
     dataToSend.append("roZemlje", data.roZemlje);
     dataToSend.append("dl", data.dl);
     dataToSend.append("granicaUdaljenostiOdUzemljivaca", data.granicaUdaljenostiOdUzemljivaca);
     dataToSend.append("korakMrezeNaZemlji", data.korakMrezeNaZemlji);
-    //dataToSend.append("Udoz", data.Udoz);
     dataToSend.append("Rcoveka", data.Rcoveka);
     dataToSend.append("Dstopala", data.Dstopala);
     dataToSend.append("rotuc", data.rotuc);
@@ -34,9 +32,7 @@ export class SoftwareService {
           XYZtackeNaPovrsini: response.XYZtackeNaPovrsini,
           pravacI: response.pravacI
         }
-        console.log(this.graphData);
         this.router.navigate(['review-earth-potential-rise'])
-        //window.open('http://localhost:4200/review-earth-potential-rise');
       })
   }
 
