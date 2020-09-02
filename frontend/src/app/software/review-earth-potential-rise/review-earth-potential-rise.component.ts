@@ -84,49 +84,49 @@ export class ReviewEarthPotentialRiseComponent implements OnInit {
         label: "Potencijal tacaka tla",
         data: this.nizPotencijalTacakaTla,
         fill: false,
-        borderColor: 'red',
+        borderColor: 'red',   
         radius: 0
       }
       let potencijalnaRazlikaDodira = {
         label: "Potencijalna razlika dodira",
         data: this.nizPotencijalnaRazlikaDodira,
         fill: false,
-        borderColor: 'green',
+        borderColor: 'limegreen',       
         radius: 0
       }
       let naponDodira = {
         label: "Napon dodira",
         data: this.nizNaponDodira,
         fill: false,
-        borderColor: 'yellow',
+        borderColor: 'yellow',    
         radius: 0
       }
       let potencijalnaRazlikaKoraka = {
         label: "Potencijalna razlika koraka",
         data: this.nizPotencijalnaRazlikaKoraka,
         fill: false,
-        borderColor: 'lightblue',
+        borderColor: 'deepskyblue',     
         radius: 0
       }
       let naponKoraka = {
         label: "Napon koraka",
         data: this.nizNaponKoraka,
         fill: false,
-        borderColor: 'black',
+        borderColor: 'black',   
         radius: 0
       }
       let naponUzemljivaca = {
         label: "Napon uzemljivaca",
         data: this.nizNaponUzemljivaca,
         fill: false,
-        borderColor: 'blue',
+        borderColor: 'blue',    
         radius: 0
       }
       let dozvoljeniNapon = {
         label: "Dozvoljeni napon",
         data: this.nizDozvoljeniNapon,
         fill: false,
-        borderColor: 'violet',
+        borderColor: 'violet',    
         radius: 0
       }
 

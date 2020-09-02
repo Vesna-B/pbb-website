@@ -1,13 +1,18 @@
-.welcome {
+.title {
     text-align: center;
 }
 
+.welcome-message-2 {
+    color: rgb(237, 31, 36);
+}
+
+
 mat-expansion-panel {
-    margin: 2%;
+    margin: 4% 5%;
 }
 
 .example-container {
-    height: 200px;
+    height: 250px;
     overflow: auto;
   }
   
@@ -21,6 +26,10 @@ table {
 
 
 /* form style */
+
+.desription {
+    margin: 5%;
+}
 
 .myForm {
     margin: 5%;

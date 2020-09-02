@@ -1,6 +1,20 @@
-<h1 class="welcome">WELCOME</h1>
+<h2 class="title" *ngIf="!isAdmin">
+  <p>Dear user, WELCOME</p>
+  <p class="welcome-message-2">We are glad that you use our software</p>
+</h2>
 
-<mat-accordion *ngIf="isAdmin">
+<h5 class="title" *ngIf="isAdmin">
+  <p>You are logged in as administrator</p>
+</h5>
+
+<mat-grid-list cols="1" rowHeight="9:2">
+  <mat-grid-tile>
+    <img src="../../../assets/img/software-img/software-1.jpg" alt="img">
+  </mat-grid-tile>
+</mat-grid-list>
+
+
+<mat-accordion *ngIf="isAdmin" class="list-of-users">
   <mat-expansion-panel  (opened)="panelOpenState = true"
                         (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
@@ -48,7 +62,11 @@
   </mat-expansion-panel>
 </mat-accordion>
 
-<hr>
+<p class="desription">
+  On the form below, you can calculate earth potential rise in the vicinity of the earthing.<br> 
+  Fill all fields. The file you upload must be .txt file that contains 6 columns and unlimited number of rows.<br>
+  After submitting the form, the graph of calculated values will be displayed to you.
+</p>
 
 <form class="myForm" [formGroup]="form" (ngSubmit)="submit()">
   <div class="form-margin">
