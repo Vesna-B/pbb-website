@@ -150,10 +150,18 @@ export class ReviewEarthPotentialRiseComponent implements OnInit {
           scales: {  
             xAxes: [{  
               type: 'linear',
-              display: true  
+              display: true, 
+              scaleLabel: {
+                display: true,
+                labelString: 'Distance (m)' 
+              }
             }],  
             yAxes: [{  
-              display: true  
+              display: true,  
+              scaleLabel: {
+                display: true,
+                labelString: 'Voltage (kV)'
+              }
             }],  
           }  
         }  

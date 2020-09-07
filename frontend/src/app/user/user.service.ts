@@ -84,6 +84,9 @@ export class UserService {
           this.saveAuthData(token, expirationDate, userType);
           this.router.navigate(['earthing-graph']);
         }
+      },
+      error => {
+        alert(error.error.message);
       });
   }
 

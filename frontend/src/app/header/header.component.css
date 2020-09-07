@@ -4,7 +4,9 @@
 }
 
 .image {
-    max-height: 60px;
+    max-height: 62px;
+    max-width: 120px;
+    margin-top: 2px;
 }
 
 .example-spacer {
