@@ -143,7 +143,11 @@ export class ReviewEarthPotentialRiseComponent implements OnInit {
             dozvoljeniNapon
           ]
         },
-        options: {  
+        options: { 
+          title: {
+            display: true,
+            text: 'Potential and voltage graph'
+          }, 
           legend: {  
             display: true  
           },  

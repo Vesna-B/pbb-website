@@ -56,11 +56,13 @@ export class UserService {
 
 
   register(user: any) {
-    console.log(user);
     this.http.post<{ message: string }>('http://localhost:3000/users', user)
       .subscribe(response => {
         console.log(response.message);
         this.router.navigate(['login']);
+      }, 
+      error => {
+        alert(error.error.message)
       });
   }
 

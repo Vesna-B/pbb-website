@@ -25,10 +25,9 @@ router.post("", (req, res, next) => {
                 })
                 .catch(err => {
                     res.status(500).json({
-                        error: err
+                        message: 'Invalid authentication credentials! Try with another mail address!'
                     });
-                });
-                
+                });               
         })
 });
 

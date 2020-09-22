@@ -4,9 +4,10 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #smallScreen>
+      <button class="link-button" mat-menu-item routerLink='/home'>Home</button>
       <button class="link-button" mat-menu-item routerLink='/about'>About</button>
       <button class="link-button" mat-menu-item routerLink='/services'>Services</button>
-      <button class="link-button" mat-menu-item routerLink='/organization-chart'>Organization chart</button>
+      <button class="link-button" mat-menu-item routerLink='/organization-chart'>Organization structure</button>
       <button class="link-button" mat-menu-item routerLink='/contact'>Contact</button>       
       <span class="link-groups-spacer"></span>      
       <button class="link-button" mat-menu-item routerLink='/earthing-graph'>Software</button>
@@ -20,15 +21,16 @@
 
 
     <a class="logo" href="/home">
-      <img class="image" src="../../assets/img/logo-demo.jpg" alt="website logo">
+      <img class="image" src="../../assets/img/logo.png" alt="website logo">
     </a>
     
     <span class="example-spacer"></span>
     
     <div fxShow="true" fxHide.lt-md>
+      <button class="link-button" mat-button routerLink='/home'>Home</button>
       <button class="link-button" mat-button routerLink='/about'>About</button>
       <button class="link-button" mat-button routerLink='/services'>Services</button>
-      <button class="link-button" mat-button routerLink='/organization-chart'>Organization chart</button>
+      <button class="link-button" mat-button routerLink='/organization-chart'>Organization structure</button>
       <button class="link-button" mat-button routerLink='/contact'>Contact</button>        
       <span class="link-groups-spacer"></span>      
       <button class="link-button" mat-button routerLink='/earthing-graph'>Software</button>

@@ -2,9 +2,9 @@ const express = require('express');
 const fs = require('fs');
 const multer = require('multer');
 const mathjs = require('mathjs');
-const Matrix = require('node-matrices');
+//const Matrix = require('node-matrices');
 
-const geometrija = require('../functions/geometrija');
+//const geometrija = require('../functions/geometrija');
 const citanjePU = require('../functions/citanjePodatakaUzemljivac');
 const uzemljivacRuM = require('../functions/uzemljivacRuMatricaSaLikovima');
 const mrezaTacaka = require('../functions/mrezaTacakaNaPovrsiniIPravci1i2');

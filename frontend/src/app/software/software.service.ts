@@ -32,7 +32,7 @@ export class SoftwareService {
           XYZtackeNaPovrsini: response.XYZtackeNaPovrsini,
           pravacI: response.pravacI
         }
-        this.router.navigate(['review-earth-potential-rise'])
+        this.router.navigate(['review-earth-potential-rise']);       
       })
   }
 
