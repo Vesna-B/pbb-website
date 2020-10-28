@@ -52,7 +52,6 @@ const tackeCnaDuziABu3D = (A, B, broj_tacaka) => {
     return C;
 }
 
-
 //exports.geometrija_Rastojanje2TackeU2D = geometrija_Rastojanje2TackeU2D;
 
 exports.rastojanje2TackeU3D = rastojanje2TackeU3D;
