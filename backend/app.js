@@ -7,7 +7,7 @@ const softwareRoutes = require('./routes/software');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://MyMDBUser:myuser20@projekat-335ya.mongodb.net/pbb-website?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://username:secret@projekat-335ya.mongodb.net/pbb-website?retryWrites=true&w=majority')
     .then(() => {
         console.log('Connected to database!');
     })
